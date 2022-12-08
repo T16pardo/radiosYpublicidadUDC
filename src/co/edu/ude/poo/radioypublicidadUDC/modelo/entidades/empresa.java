@@ -8,7 +8,7 @@ package co.edu.ude.poo.RadioypublicidadUDC.modelo.entidades;
  *
  * @author thalma
  */
-public class empresa {
+public class empresa  {
     public String id;
     public String nif;
     public String nombre;
