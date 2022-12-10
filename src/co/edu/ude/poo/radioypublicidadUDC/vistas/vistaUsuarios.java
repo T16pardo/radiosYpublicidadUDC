@@ -346,14 +346,16 @@ public class vistaUsuarios extends javax.swing.JDialog {
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
        // botonBuscarActionPerformed(evt);
+       //validamos que el campo id tenga algun dato
         if (campoID.getText()== null || campoID.getText().isEmpty()){
              String msj = "PARA EDITAR PRIMERO TIENES QUE BUSCAR LA EMISORA";
             JOptionPane.showMessageDialog(this, msj);
             return;      
             
         }
-        
+        //obtenemos la emisora  desde el diccionario a partir del id
         emisora e = emisora.EmisoraBD.get(campoID.getText());
+        //obtenemos los nuevos datos ingresados desde el formulario
         String nif = campoNIF.getText();
         String nombre = campoNombre.getText();
         String nombreDirector = campoNombreDirector1.getText();
@@ -365,7 +367,11 @@ public class vistaUsuarios extends javax.swing.JDialog {
         e.nombreDirect = nombreDirector;
         e.direccionPostal = direccionPostal;
         e.bandaHZ = bandaHZ ;
-        
+        //guardamos las emisoras con los nuevos datos
+        emisora.EmisoraBD.put(e.id, e);
+        //mostrar el usuario
+        String msj =" para editar pimero debe buscar la emisora";
+        JOptionPane.showMessageDialog(this, msj);
         
     }//GEN-LAST:event_botonEditarActionPerformed
 
